@@ -12,6 +12,8 @@
     <h2>{{title}}</h2>
     <p>by {{createdBy}}</p>
     <p>{{content}}</p>
+    <button type="button" class="btn btn-info">Edit</button>
+    <button type="button" class="delete-blog btn btn-danger">Delete</button>
   </li>
 </template>
 
@@ -23,9 +25,9 @@
       <input type="text" class="form-control" name="blogTitle" placeHolder="Title of post...">
     </div>
     <div class="form-group">
-      <label for="blogTitle">Title:</label>
+      <label for="blogTitle">Content:</label>
       <textarea class="form-control" rows="5" name="blogContent" placeHolder="Content of post..."></textarea>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-success">Submit</button>
   </form>
 </template>

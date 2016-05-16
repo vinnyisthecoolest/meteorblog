@@ -24,3 +24,10 @@ Template.addBlog.events({
      $('[name="blogContent"]').val('');
   }
 });
+
+Template.blogItem.events({
+  'click .delete-blog'() {
+    const documentId = this._id;
+    Blogs.remove({_id: documentId});
+  }
+});
