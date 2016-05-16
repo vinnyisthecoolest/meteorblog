@@ -1,4 +1,5 @@
 <template name="blogs">
+  {{> addBlog}}
   <ul>
     {{#each blog}}
       {{> blogItem}}
@@ -12,4 +13,14 @@
     <p>by {{createdBy}}</p>
     <p>{{content}}</p>
   </li>
+</template>
+
+<template name="addBlog">
+  <form>
+    <p>Create a blog post:</p>
+    <input type="text"  name="blogTitle" placeHolder="Title of post...">
+    <br>
+    <br>
+    <textarea name="blogContent" placeHolder="Content of post..."></textarea>
+  </form>
 </template>

@@ -10,4 +10,15 @@ Template.blogs.helpers({
   }
 });
 
-
+Template.addBlog.events({
+  'submit form'(event) {
+     event.preventDefault();
+     const blogTitle = $('[name="blogTitle"]').val();
+     const blogContent = $('[name="blogContent"]').val();
+     Blogs.insert({
+       title: blogTitle,
+       content: blogContent,
+       createdAt: new Date()
+     });
+  }
+});
