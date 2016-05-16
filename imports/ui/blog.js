@@ -20,5 +20,7 @@ Template.addBlog.events({
        content: blogContent,
        createdAt: new Date()
      });
+     $('[name="blogTitle"]').val('');
+     $('[name="blogContent"]').val('');
   }
 });
