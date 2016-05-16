@@ -28,6 +28,9 @@ Template.addBlog.events({
 Template.blogItem.events({
   'click .delete-blog'() {
     const documentId = this._id;
-    Blogs.remove({_id: documentId});
+    const confirm = window.confirm("Delete this blog?");
+    if (confirm) {
+      Blogs.remove({_id: documentId});
+    }
   }
 });
