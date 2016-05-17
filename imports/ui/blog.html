@@ -1,5 +1,4 @@
 <template name="blogs">
-  {{> addBlog}}
   <ul>
     {{#each blog}}
       {{> blogItem}}
@@ -30,4 +29,10 @@
     </div>
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
+</template>
+
+<template name="myBlogs">
+  {{> addBlog}}
+  <h2>My Blogs</h2>
+  {{> blogs}}
 </template>
