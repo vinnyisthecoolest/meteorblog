@@ -18,6 +18,8 @@ Template.addBlog.events({
      Blogs.insert({
        title: blogTitle,
        content: blogContent,
+       author: Meteor.user().username,
+       createdBy: Meteor.userId(),
        createdAt: new Date()
      });
      $('[name="blogTitle"]').val('');
