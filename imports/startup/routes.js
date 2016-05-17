@@ -11,4 +11,4 @@ Router.route('/', {
   template: 'home'
 });
 
-Router.route('/myBlogs');
+Router.route('/myBlog');

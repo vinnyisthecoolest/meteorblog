@@ -1,3 +1,4 @@
+<!-- Homepage blog templates -->
 <template name="blogs">
   <ul>
     {{#each blog}}
@@ -8,10 +9,32 @@
 
 <template name="blogItem">
   <li>
-    <h2>{{title}}</h2>
+    <h3>{{title}}</h3>
     <p>by {{author}}</p>
     <p>{{content}}</p>
-    <button type="button" class="btn btn-info">Edit</button>
+  </li>
+</template>
+
+<!-- My Blog Templates -->
+<template name="myBlog">
+  {{> addBlog}}
+  <h2>My Blogs</h2>
+  {{> myBlogs}}
+</template>
+
+<template name="myBlogs">
+  <ul>
+    {{#each blog}}
+      {{> myBlogItem}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="myBlogItem">
+  <li>
+    <h3>{{title}}</h3>
+    <p>by {{author}}</p>
+    <p>{{content}}</p>
     <button type="button" class="delete-blog btn btn-danger">Delete</button>
   </li>
 </template>
@@ -31,8 +54,3 @@
   </form>
 </template>
 
-<template name="myBlogs">
-  {{> addBlog}}
-  <h2>My Blogs</h2>
-  {{> blogs}}
-</template>

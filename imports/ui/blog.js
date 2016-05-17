@@ -10,6 +10,12 @@ Template.blogs.helpers({
   }
 });
 
+Template.myBlogs.helpers({
+  'blog'() {
+    return Blogs.find({}, {sort: {createdAt: -1}});
+  }
+});
+
 Template.addBlog.events({
   'submit form'(event) {
      event.preventDefault();
