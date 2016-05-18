@@ -21,7 +21,16 @@ Router.route('/blog/:_id', {
   }
 });
 
-Router.route('/myBlog');
+Router.route('/myBlog', {
+  onBeforeAction: function(){
+    var currentUser = Meteor.userId();
+    if(currentUser){
+      this.next();
+    } else {
+      this.render("home");
+    }
+  }
+});
 
 Router.route('/myBlog/:_id', {
   template: 'editBlog',
