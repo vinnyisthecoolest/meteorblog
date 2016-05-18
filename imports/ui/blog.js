@@ -19,18 +19,18 @@ Template.myBlogs.helpers({
 
 Template.addBlog.events({
   'submit form'(event) {
-     event.preventDefault();
-     const blogTitle = $('[name="blogTitle"]').val();
-     const blogContent = $('[name="blogContent"]').val();
-     Blogs.insert({
-       title: blogTitle,
-       content: blogContent,
-       author: Meteor.user().username,
-       createdBy: Meteor.userId(),
-       createdAt: new Date()
-     });
-     $('[name="blogTitle"]').val('');
-     $('[name="blogContent"]').val('');
+    event.preventDefault();
+    const blogTitle = $('[name="blogTitle"]').val();
+    const blogContent = $('[name="blogContent"]').val();
+    Blogs.insert({
+      title: blogTitle,
+      content: blogContent,
+      author: Meteor.user().username,
+      createdBy: Meteor.userId(),
+      createdAt: new Date()
+    });
+    $('[name="blogTitle"]').val('');
+    $('[name="blogContent"]').val('');
   }
 });
 
@@ -40,6 +40,18 @@ Template.myBlogItem.events({
     const confirm = window.confirm("Delete this blog?");
     if (confirm) {
       Blogs.remove({_id: documentId});
+    }
+  }
+});
+
+Template.editBlog.events({
+  'submit form'() {
+    const documentId = this._id;
+    const blogTitle = $('[name="blogTitle"]').val();
+    const blogContent = $('[name="blogContent"]').val();
+    const confirm = window.confirm("Are you satisfied with your edit?");
+    if (confirm) {
+      Blogs.update({_id: documentId}, {$set: {title: blogTitle, content: blogContent}});
     }
   }
 });

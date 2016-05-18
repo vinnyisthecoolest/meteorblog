@@ -22,3 +22,11 @@ Router.route('/blog/:_id', {
 });
 
 Router.route('/myBlog');
+
+Router.route('/myBlog/:_id', {
+  template: 'editBlog',
+  data() {
+    const currentBlog = this.params._id;
+    return Blogs.findOne({_id: currentBlog})
+  }
+});
