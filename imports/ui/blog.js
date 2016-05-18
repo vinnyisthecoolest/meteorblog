@@ -34,7 +34,7 @@ Template.addBlog.events({
   }
 });
 
-Template.blogItem.events({
+Template.myBlogItem.events({
   'click .delete-blog'() {
     const documentId = this._id;
     const confirm = window.confirm("Delete this blog?");
