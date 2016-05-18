@@ -9,11 +9,21 @@
 
 <template name="blogItem">
   <li>
-    <h3>{{title}}</h3>
+    <a href="/blog/{{_id}}">{{title}}</a>
     <p>by {{author}}</p>
     <p>{{content}}</p>
   </li>
 </template>
+
+<!-- Blog Page template -->
+<template name="blogPage">
+  <div>
+    <h3>{{title}}</h3>
+    <p>by {{author}}</p>
+    <p>{{content}}</p>
+  </div>
+</template>
+
 
 <!-- My Blog Templates -->
 <template name="myBlog">
