@@ -22,15 +22,14 @@ Template.addBlog.events({
     event.preventDefault();
     const blogTitle = $('[name="blogTitle"]').val();
     const blogContent = $('[name="blogContent"]').val();
-    Blogs.insert({
-      title: blogTitle,
-      content: blogContent,
-      author: Meteor.user().username,
-      createdBy: Meteor.userId(),
-      createdAt: new Date()
+    Meteor.call('createBlogItem', blogTitle, blogContent, function(error) {
+      if (error) {
+        console.log(error.reason);
+      } else {
+        $('[name="blogTitle"]').val('');
+        $('[name="blogContent"]').val('');
+      }
     });
-    $('[name="blogTitle"]').val('');
-    $('[name="blogContent"]').val('');
   }
 });
 
@@ -39,7 +38,7 @@ Template.myBlogItem.events({
     const documentId = this._id;
     const confirm = window.confirm("Delete this blog?");
     if (confirm) {
-      Blogs.remove({_id: documentId});
+      Meteor.call('deleteBlogItem', documentId);
     }
   }
 });
@@ -51,7 +50,7 @@ Template.editBlog.events({
     const blogContent = $('[name="blogContent"]').val();
     const confirm = window.confirm("Are you satisfied with your edit?");
     if (confirm) {
-      Blogs.update({_id: documentId}, {$set: {title: blogTitle, content: blogContent}});
+      Meteor.call('updateBlogItem', documentId, blogTitle, blogContent);
     }
   }
 });
