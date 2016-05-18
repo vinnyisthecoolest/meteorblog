@@ -5,7 +5,9 @@
         <a class="navbar-brand" href="{{pathFor route='home'}}">METEOR BLOG</a>
       </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{pathFor route='myBlog'}}">My Blog</a></li>
+        {{#if currentUser}}
+          <li><a href="{{pathFor route='myBlog'}}">My Blog</a></li>
+        {{/if}}
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> 
         {{> loginButtons align="right"}}
         </a></li>
