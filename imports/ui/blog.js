@@ -12,7 +12,8 @@ Template.blogs.helpers({
 
 Template.myBlogs.helpers({
   'blog'() {
-    return Blogs.find({}, {sort: {createdAt: -1}});
+    const currentUser = Meteor.userId();
+    return Blogs.find({createdBy: currentUser}, {sort: {createdAt: -1}});
   }
 });
 
