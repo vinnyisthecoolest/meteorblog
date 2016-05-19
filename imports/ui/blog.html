@@ -9,17 +9,19 @@
 
 <template name="blogItem">
   <li>
-    <a href="/blog/{{_id}}">{{title}}</a>
-    <p>by {{author}}</p>
-    <p>{{content}}</p>
+    <div class="well">
+      <a href="/blog/{{_id}}" class="blog-title">{{title}}</a>
+      <p class="blog-author">by {{author}}</p>
+      <p>{{content}}</p>
+    </div>
   </li>
 </template>
 
 <!-- Blog Page template -->
 <template name="blogPage">
-  <div>
-    <h3>{{title}}</h3>
-    <p>by {{author}}</p>
+  <div class="well">
+    <h3 class="blog-title">{{title}}</h3>
+    <p class="blog-author">by {{author}}</p>
     <p>{{content}}</p>
   </div>
 </template>
@@ -42,11 +44,13 @@
 
 <template name="myBlogItem">
   <li>
-    <h3>{{title}}</h3>
-    <p>by {{author}}</p>
-    <p>{{content}}</p>
-    <a href="/myBlog/{{_id}}" class="btn btn-info">Edit</a>
-    <button type="button" class="delete-blog btn btn-danger">Delete</button>
+    <div class="well">
+      <h3>{{title}}</h3>
+      <p>by {{author}}</p>
+      <p>{{content}}</p>
+      <a href="/myBlog/{{_id}}" class="btn btn-info">Edit</a>
+      <button type="button" class="delete-blog btn btn-danger">Delete</button>
+    </div>
   </li>
 </template>
 
